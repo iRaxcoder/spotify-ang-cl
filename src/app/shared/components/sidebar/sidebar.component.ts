@@ -7,9 +7,62 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  menuOptions: {
+    defaultOptions: Array<any>, accessLink: Array<any>
+  } = { defaultOptions: [], accessLink: [] }
+
+  customOptions: Array<any> = []
+
   constructor() { }
 
   ngOnInit(): void {
+    this.menuOptions.defaultOptions = [
+      {
+        name: "Home",
+        icon: "uil uil-estate",
+        route: ['/']
+      },
+      {
+        name: "Search",
+        icon: "uil uil-search",
+        route: ['/', 'history']
+      },
+      {
+        name: "Your Library",
+        icon: "uil uil-chart",
+        route: ['/', 'favorites']
+      },
+    ]
+
+    this.menuOptions.accessLink = [
+      {
+        name: "Create playlist",
+        icon: "uil-plus-square"
+      },
+      {
+        name: "Songs you like",
+        icon: "uil-heart-medical"
+      },
+    ]
+
+    this.customOptions = [
+      {
+        name: "My playlist #1",
+        route: ["/"]
+      },
+      {
+        name: "My playlist #2",
+        route: ["/"]
+      },
+      {
+        name: "My playlist #3",
+        route: ["/"]
+      },
+      {
+        name: "My playlist #4",
+        route: ["/"]
+      },
+    ]
   }
 
 }
