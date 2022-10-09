@@ -2,7 +2,7 @@
   width: 15.5rem;
   height: 100vh;
   position: fixed;
-  background: crimson;
+  background: var(--color-3);
   top: 0;
   left: 0;
   padding: 0.5rem 1rem;
