@@ -1,0 +1,44 @@
+.card-player {
+  background: var(--color-2);
+  height: 5rem;
+  border-radius: var(--border-radius-1);
+  display: flex;
+  width: 20rem;
+  transition: all ease var(--animation-1);
+  justify-content: space-between;
+}
+
+.card-player:hover {
+  background: #4d4d4d;
+}
+
+.card-player .cover {
+  width: 5rem;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: var(--border-radius-1);
+  border-bottom-left-radius: var(--border-radius-1);
+}
+
+.card-player .content-player {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding-left: 0.75rem;
+}
+
+.card-player:hover .buttons-player {
+  opacity: 1;
+}
+
+.card-player .buttons-player .play-btn {
+  color: var(--color-4);
+  border: 0;
+  cursor: pointer;
+  font-size: 1.15rem;
+  border-radius: 2rem;
+  background: var(--color-1);
+  width: 45px;
+  height: 45px;
+}

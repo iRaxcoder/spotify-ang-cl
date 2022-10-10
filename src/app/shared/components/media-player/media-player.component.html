@@ -1,1 +1,28 @@
-<p>media-player works!</p>
+<div class="media-player">
+    <div class="media-player--wrapper">
+        <div class="artist player-center">
+            <ng-container *ngTemplateOutlet="artistZone"></ng-container>
+        </div>
+
+        <div class="player-controls player-center">
+            <ng-container *ngTemplateOutlet="playerZone"></ng-container>
+        </div>
+
+        <div class="player-audio player-center">
+            <ng-container *ngTemplateOutlet="playerAudio"></ng-container>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #artistZone>
+
+</ng-template>
+
+<ng-template #playerZone>
+
+</ng-template>
+
+<ng-template #playerAudio>
+
+</ng-template>
