@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +14,9 @@ export class SidebarComponent implements OnInit {
 
   customOptions: Array<any> = []
 
-  constructor() { }
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit(): void {
     this.menuOptions.defaultOptions = [
@@ -30,7 +33,7 @@ export class SidebarComponent implements OnInit {
       {
         name: "Your Library",
         icon: "uil uil-chart",
-        route: ['/', 'favorites']
+        route: ['/', 'tracks']
       },
     ]
 
@@ -63,6 +66,13 @@ export class SidebarComponent implements OnInit {
         route: ["/"]
       },
     ]
+  }
+  navigateTo($event: any, route: []): void {
+    this.router.navigate(route, {
+      queryParams: {
+        key: "value"
+      }
+    })
   }
 
 }

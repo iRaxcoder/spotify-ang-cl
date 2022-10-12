@@ -13,6 +13,6 @@
 }
 
 .section--generic__player--zone .player--list.card-big {
-  gap: 2rem;
-  flex-grow: 800px;
+  gap: 5rem;
+  flex: 1;
 }

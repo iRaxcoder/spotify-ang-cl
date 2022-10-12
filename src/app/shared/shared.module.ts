@@ -7,6 +7,7 @@ import { CardPlayerComponent } from './components/card-player/card-player.compon
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
 import { PlaylistHeaderComponent } from './components/playlist-header/playlist-header.component';
 import { PlaylistBodyComponent } from './components/playlist-body/playlist-body.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PlaylistBodyComponent } from './components/playlist-body/playlist-body.
     PlaylistBodyComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     SidebarComponent,

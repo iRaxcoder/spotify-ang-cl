@@ -1,14 +1,14 @@
 <div class="playlist-body">
     <ul class="playlist-table-header">
-        <li>Nombre</li>
-        <li>Albúm</li>
+        <li>Título</li>
+        <li>Artista</li>
         <li>Fecha incorporación</li>
         <li><i class="uil uil-clock-eight"></i></li>
     </ul>
 
     <ul class="playlist-rows" *ngFor="let track of tracks">
         <li class="track-name">
-            <ng-container *ngTemplateOutlet="coverSection;context:{track:track}"></ng-container>
+            <ng-container *ngTemplateOutlet="coverSection;context:{track}"></ng-container>
         </li>
         <li class="track-name-opacity">
             {{track.album}}

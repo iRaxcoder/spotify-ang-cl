@@ -15,19 +15,17 @@
 </div>
 
 <!-- big -->
-<!-- <div *ngIf="mode==='big'" class="card-player player-big">
+<div *ngIf="mode==='big'" class="card-player player-big">
 
-    <img appImgBroken
-        [customImg]="'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png'"
-        [src]="track.cover" alt="" class="cover">
+    <img appImgBroken [src]="track.cover" alt="" class="cover">
 
     <div class="content-player">
         <div class="title-track"> {{track.name}} </div>
-        <div class="sub-title-track">{{track.name}}</div>
+        <div class="sub-title-track">{{track.artist?.name}}</div>
     </div>
 
     <div class="buttons-player">
-        <button (click)="sendPlay(track)" *ngIf="true" class="play-btn">
+        <button *ngIf="true" class="play-btn">
             <i class="uil" [ngClass]="{'uil-play': true}"></i>
         </button>
         <button *ngIf="false" class="play-btn">
@@ -35,4 +33,4 @@
         </button>
     </div>
 
-</div> -->
+</div>
