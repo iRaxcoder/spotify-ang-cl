@@ -1,12 +1,12 @@
 <div class="playlist-body">
     <ul class="playlist-table-header">
-        <li>Título</li>
-        <li>Artista</li>
-        <li>Fecha incorporación</li>
+        <li style="cursor: pointer;" (click)="changeSort('name')">Título</li>
+        <li style="cursor: pointer;" (click)="changeSort('album')">Album</li>
+        <li>Nación</li>
         <li><i class="uil uil-clock-eight"></i></li>
     </ul>
 
-    <ul class="playlist-rows" *ngFor="let track of tracks">
+    <ul class="playlist-rows" *ngFor="let track of tracks |orderList:sortOption.property:sortOption.order">
         <li class="track-name">
             <ng-container *ngTemplateOutlet="coverSection;context:{track}"></ng-container>
         </li>
@@ -14,7 +14,7 @@
             {{track.album}}
         </li>
         <li class="track-name-opacity">
-            {{track.album}}
+            {{track.artist?.nationality}}
         </li>
         <li class="track-name-opacity">
             {{track.album}}

@@ -40,11 +40,13 @@ export class SidebarComponent implements OnInit {
     this.menuOptions.accessLink = [
       {
         name: "Create playlist",
-        icon: "uil-plus-square"
+        icon: "uil-plus-square",
+        route: ['/', 'create-playlist']
       },
       {
         name: "Songs you like",
-        icon: "uil-heart-medical"
+        icon: "uil-heart-medical",
+        route: ['/', 'favorites']
       },
     ]
 

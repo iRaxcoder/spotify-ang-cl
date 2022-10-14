@@ -9,11 +9,20 @@ import * as rawData from '../../../data/tracks.json'
 })
 export class PlaylistBodyComponent implements OnInit {
   tracks: TrackModel[] = []
+  sortOption: { property: string | null, order: string } = { property: null, order: 'asc' }
   constructor() { }
 
   ngOnInit(): void {
     const { data }: any = (rawData as any).default
     this.tracks = data;
+  }
+
+  changeSort(property: string): void {
+    const { order } = this.sortOption;
+    this.sortOption = {
+      property,
+      order: order === "asc" ? 'desc' : 'asc'
+    }
   }
 
 }
