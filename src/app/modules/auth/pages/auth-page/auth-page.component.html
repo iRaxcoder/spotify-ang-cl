@@ -7,7 +7,7 @@
             <button class="social-btn btn-google"><i class="uil uil-google"></i>Continuar con Google</button>
         </div>
         <div class="separator"></div>
-        <form (ngSubmit)="login" [formGroup]="formLogin" class="login-auth-form">
+        <form (ngSubmit)="login()" [formGroup]="formLogin" class="login-auth-form">
             <div class="form-group">
                 <label for="email">Dirección de correo o nombre de usuario</label>
                 <input formControlName="email" class="form-input" type="text"
@@ -24,7 +24,7 @@
                 Ocurrió un error con tu email o contraseña
             </div> -->
             <div class="form-action">
-                <button [disabled]="formLogin.invalid" class="login social-btn">
+                <button type="submit" [disabled]="formLogin.invalid" class="login social-btn">
                     {{formLogin.value.email?'Iniciar sesión con
                     '+formLogin.value.email:'Iniciar
                     Sesión'}}
