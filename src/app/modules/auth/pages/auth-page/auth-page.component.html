@@ -18,11 +18,11 @@
                 <input formControlName="password" class="form-input" type="password" placeholder="Contraseña">
             </div>
             <div class="form-steps">
-                <a href="" class="link">Se te ha olvidado la contraseña?</a>
+                <a href="" class="link">¿Se te ha olvidado la contraseña?</a>
             </div>
-            <!-- <div>
-                Ocurrió un error con tu email o contraseña
-            </div> -->
+            <div *ngIf="errorSession.isError">
+                {{errorSession.message}}
+            </div> 
             <div class="form-action">
                 <button type="submit" [disabled]="formLogin.invalid" class="login social-btn">
                     {{formLogin.value.email?'Iniciar sesión con

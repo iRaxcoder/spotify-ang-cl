@@ -1,29 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
-import { observable, Observable, of } from 'rxjs';
-import * as rawData from '../../../data/tracks.json'
+import { catchError, map, mergeMap, Observable, of, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TrackService {
+  private readonly BASE_URL = environment.api_url;
+  constructor(private httpClient: HttpClient) {
+    //const { data }: any = (rawData as any).default
+  }
 
-  trendingTracks$: Observable<TrackModel[]> = of([])
-  randomTracks$: Observable<any> = of([])
-  constructor() {
-    const { data }: any = (rawData as any).default
-    this.trendingTracks$ = of(data)
+  private skipById(trackList: TrackModel[], id: number): Promise<TrackModel[]> {
+    return new Promise((resolve, reject) => {
+      const tempList = trackList.filter((t) => t._id != id);
+      resolve(tempList);
+    });
+  }
 
-    this.randomTracks$ = new Observable(observable => {
+  getAllTracks$(): Observable<any> {
+    return this.httpClient.get(`${this.BASE_URL}/tracks`).pipe(
+      map(({ data }: any) => {
+        return data;
+      })
+    );
+  }
 
-      const trackExample: TrackModel = {
-        _id: 9,
-        name: 'Welcome to the Jungle',
-        album: 'Appetite for destruction',
-        cover: 'https://wallpapertag.com/wallpaper/full/f/1/3/936618-download-guns-n-roses-logo-wallpaper-1920x1080.jpg',
-        url: '',
-        artist: { name: 'Guns and Roses', nationality: 'US', nickname: 'GNR' }
-      }
-      observable.next([trackExample])
-    })
+  getAllRandom$(): Observable<any> {
+    return this.httpClient.get(`${this.BASE_URL}/tracks`).pipe(
+      mergeMap(({ data }: any) => this.skipById(data, 1)),
+      //tap(data=>console.log(data)) //tap (window between requests)
+      catchError((err) => {
+        console.log('An error has ocurred when getting data');
+        return of([]);
+      })
+    );
   }
 }
