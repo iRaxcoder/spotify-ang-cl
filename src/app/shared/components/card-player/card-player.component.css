@@ -20,6 +20,16 @@
   border-bottom-left-radius: var(--border-radius-1);
 }
 
+.card-player .buttons-player {
+  opacity: 0;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  transition: all ease var(--animation-1);
+}
+
 .card-player .content-player {
   font-weight: 500;
   display: flex;

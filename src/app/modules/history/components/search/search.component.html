@@ -1,0 +1,5 @@
+<div class="search-component">
+    <input (ngModelChange)="onSearch($event)" [(ngModel)]="keyword" type="text" placeholder="search...">
+    <br>
+    <div>Results: {{keyword}} </div>
+</div>
