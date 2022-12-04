@@ -7,11 +7,8 @@
         {{track.name}}
     </div>
     <div class="buttons-player">
-        <button *ngIf="true" class="play-btn">
+        <button (click)="playTrack(track)" *ngIf="true" class="play-btn">
             <i class="uil" [ngClass]="{'uil-play':true}"></i>
-        </button>
-        <button class="play-btn" *ngIf="false">
-            <i class="uil uil-play"></i>
         </button>
     </div>
 </div>

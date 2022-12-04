@@ -121,7 +121,7 @@
 
 .time-progress{
     background-color: var(--color-2);
-    height: 2px;
+    height: 4px;
     width: 100%;
     left: 0;
     position: absolute;
